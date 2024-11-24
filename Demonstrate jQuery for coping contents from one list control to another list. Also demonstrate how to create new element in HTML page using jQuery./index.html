@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery List Copy Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        select {
+            width: 150px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Copy Items Between Lists</h2>
+    <select id="sourceList" multiple>
+        <option value="1">Item 1</option>
+        <option value="2">Item 2</option>
+        <option value="3">Item 3</option>
+        <option value="4">Item 4</option>
+        <option value="5">Item 5</option>
+    </select>
+
+    <button id="copyButton">Copy Selected</button>
+
+    <select id="destinationList" multiple>
+        <!-- Items will be copied here -->
+    </select>
+
+    <h2>Add New Element</h2>
+    <button id="addElementButton">Add New Element</button>
+    <div id="newElementContainer"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Copy selected items from sourceList to destinationList
+            $('#copyButton').click(function() {
+                $('#sourceList option:selected').each(function() {
+                    // Clone the selected option and append to destinationList
+                    $(this).clone().appendTo('#destinationList');
+                });
+            });
+
+            // Create a new element when the button is clicked
+            $('#addElementButton').click(function() {
+                // Create a new div element with some text
+                $('<div>New Element Added!</div>').appendTo('#newElementContainer');
+            });
+        });
+    </script>
+
+</body>
+</html>
