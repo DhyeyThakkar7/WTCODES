@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Currency Converter</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #f4f4f9;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height: 100vh;
+           margin: 0;
+       }
+       .converter {
+           background: #ffffff;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+           text-align: center;
+           width: 300px;
+       }
+       h1 {
+           color: #333;
+           font-size: 1.8rem;
+       }
+       label {
+           display: block;
+           margin: 15px 0 5px;
+           color: #555;
+       }
+       input[type="text"], input[type="submit"] {
+           width: 100%;
+           padding: 10px;
+           margin-bottom: 15px;
+           border: 1px solid #ddd;
+           border-radius: 4px;
+           font-size: 1rem;
+       }
+       input[type="submit"] {
+           background-color: #007bff;
+           color: white;
+           cursor: pointer;
+       }
+       input[type="submit"]:hover {
+           background-color: #0056b3;
+       }
+       .result {
+           font-size: 1.5rem;
+           color: #007bff;
+           margin-top: 10px;
+       }
+   </style>
+</head>
+<body>
+   <div class="converter">
+       <h1>Currency Converter</h1>
+       <form method="POST" action="">
+           <label for="dollar">Enter Amount in Dollars (USD):</label>
+           <input type="text" id="dollar" name="dollar" placeholder="e.g., 10" required>
+           <input type="submit" value="Convert to INR">
+       </form>
+       
+       <?php
+       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+           $dollar = $_POST['dollar'];
+           $exchangeRate = 83.50; // Hard-coded exchange rate
+           if (is_numeric($dollar)) {
+               $rupees = $dollar * $exchangeRate;
+               echo "<div class='result'>₹" . number_format($rupees, 2) . "</div>";
+           } else {
+               echo "<div class='result'>Please enter a valid number.</div>";
+           }
+       }
+       ?>
+   </div>
+</body>
+</html>
