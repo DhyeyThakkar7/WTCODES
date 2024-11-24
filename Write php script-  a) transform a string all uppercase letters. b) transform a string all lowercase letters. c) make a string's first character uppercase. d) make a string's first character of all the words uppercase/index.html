@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>String Transformation</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           padding: 20px;
+           background-color: #f4f4f4;
+       }
+       .container {
+           background-color: white;
+           border-radius: 8px;
+           padding: 20px;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           max-width: 500px;
+           margin: 0 auto;
+       }
+       input[type="text"], button {
+           width: 100%;
+           padding: 10px;
+           margin: 10px 0;
+           font-size: 1.1rem;
+           border-radius: 5px;
+           border: 1px solid #ddd;
+       }
+       button {
+           background-color: #4CAF50;
+           color: white;
+           border: none;
+           cursor: pointer;
+       }
+       button:hover {
+           background-color: #45a049;
+       }
+       .output {
+           background-color: #f8f8f8;
+           padding: 10px;
+           border: 1px solid #ddd;
+           margin-top: 10px;
+           font-size: 1.1rem;
+       }
+   </style>
+</head>
+<body>
+ 
+   <div class="container">
+       <h2>String Transformation</h2>
+       <form method="POST">
+           <label for="stringInput">Enter a string:</label>
+           <input type="text" name="string" id="stringInput" required>
+ 
+           <button type="submit" name="transform">Transform</button>
+       </form>
+ 
+       <?php
+       if ($_SERVER["REQUEST_METHOD"] == "POST") {
+           // Input string from the user
+           $string = $_POST['string'];
+ 
+           // a) Transform all letters to uppercase
+           $uppercase = strtoupper($string);
+ 
+           // b) Transform all letters to lowercase
+           $lowercase = strtolower($string);
+ 
+           // c) Make the first character uppercase
+           $capitalizedFirst = ucfirst($string);
+ 
+           // d) Make the first character of all words uppercase
+           $capitalizedWords = ucwords($string);
+           ?>
+ 
+           <div class="output">
+               <h3>Results:</h3>
+               <p><strong>Uppercase:</strong> <?php echo $uppercase; ?></p>
+               <p><strong>Lowercase:</strong> <?php echo $lowercase; ?></p>
+               <p><strong>First character uppercase:</strong> <?php echo $capitalizedFirst; ?></p>
+               <p><strong>First character of each word uppercase:</strong> <?php echo $capitalizedWords; ?></p>
+           </div>
+ 
+           <?php
+       }
+       ?>
+   </div>
+ 
+</body>
+</html>
