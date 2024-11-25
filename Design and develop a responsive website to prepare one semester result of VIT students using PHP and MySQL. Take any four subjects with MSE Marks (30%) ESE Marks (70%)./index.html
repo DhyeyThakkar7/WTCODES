@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>VIT Semester Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">VIT Semester Result Preparation</h1>
+        <form action="submit_results.php" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="student">Select Student</label>
+                <select name="student_id" id="student" class="form-control">
+                    <!-- Populate with PHP -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Select Subject</label>
+                <select name="subject_id" id="subject" class="form-control">
+                    <!-- Populate with PHP -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mse_marks">MSE Marks (30%)</label>
+                <input type="number" name="mse_marks" id="mse_marks" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ese_marks">ESE Marks (70%)</label>
+                <input type="number" name="ese_marks" id="ese_marks" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Results</button>
+        </form>
+        <div class="mt-5">
+            <h2>Results</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Subject</th>
+                        <th>MSE Marks</th>
+                        <th>ESE Marks</th>
+                        <th>Total Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populate with PHP -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
